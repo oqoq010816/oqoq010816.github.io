@@ -464,31 +464,48 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件&lt;string.h&gt;"></a>头文件<code>&lt;string.h&gt;</code></h2><h3 id="string长度："><a href="#string长度：" class="headerlink" title="string长度："></a>string长度：</h3><p><code>string str;</code></p>
-<p>函数：<code>str.size()、str.length()</code></p>
-<h3 id="string访问："><a href="#string访问：" class="headerlink" title="string访问："></a>string访问：</h3><p>迭代器访问：</p>
-<p><code>string str=&quot;hello world&quot;;</code></p>
-<p><code>for(string::iterator it==str.begin();it!=str.end();it++)&#123;</code></p>
-<p>​		<code>printf(&quot;%c&quot;,*it);</code></p>
+                <h2 id="C-中cin、cin-get-、cin-getline-、getline-、gets-等函数的用法"><a href="#C-中cin、cin-get-、cin-getline-、getline-、gets-等函数的用法" class="headerlink" title="C++中cin、cin.get()、cin.getline()、getline()、gets()等函数的用法"></a>C++中cin、cin.get()、cin.getline()、getline()、gets()等函数的用法</h2><p>1、cin<br>2、cin.get()<br>3、cin.getline()<br>4、getline()<br>5、gets()<br>6、getchar()</p>
+<p>附:cin.ignore();cin.get()&#x2F;&#x2F;跳过一个字符,例如不想要的回车,空格等字符</p>
+<p>*<strong>1、cin&gt;&gt;*</strong>     </p>
+<p>用法1：最基本，也是最常用的用法，输入一个数字：</p>
+<p><code>\#include &lt;iostream&gt;</code><br><code>using namespace std;</code><br><code>main ()</code><br><code>&#123;</code><br><code>int a,b;</code><br><code>cin&gt;&gt;a&gt;&gt;b;</code><br><code>cout&lt;&lt;a+b&lt;&lt;endl;</code><br><code>&#125;</code></p>
+<p>输入：2[回车]3[回车]<br>输出：5</p>
+<p>注意:&gt;&gt; 是会过滤掉不可见字符（如 空格 回车，TAB 等）<br>cin&gt;&gt;noskipws&gt;&gt;input[j];&#x2F;&#x2F;不想略过空白字符，那就使用 noskipws 流控制</p>
+<p>用法2：接受一个字符串，遇“空格”、“TAB”、“回车”都结束</p>
+<p><code>\#include &lt;iostream&gt;</code><br><code>using namespace std;</code><br><code>main ()</code><br><code>&#123;</code><br><code>char a[20];</code><br><code>cin&gt;&gt;a;</code><br><code>cout&lt;&lt;a&lt;&lt;endl;</code><br><code>&#125;</code></p>
+<p>输入：jkljkljkl<br>输出：jkljkljkl</p>
+<p>输入：jkljkl jkljkl    &#x2F;&#x2F;遇空格结束<br>输出：jkljkl</p>
+<p><em><strong>2、cin.get()</strong></em></p>
+<p>用法1： cin.get(字符变量名)可以用来接收字符</p>
+<p><code>\#include &lt;iostream&gt;</code><br><code>using namespace std;</code><br><code>main ()</code><br><code>&#123;</code><br><code>char ch;</code><br><code>ch=cin.get();        //或者cin.get(ch);</code><br><code>cout&lt;&lt;ch&lt;&lt;endl;</code><br><code>&#125;</code></p>
+<p>输入：jljkljkl<br>输出：j</p>
+<p>用法2：cin.get(字符数组名,接收字符数目)用来接收一行字符串,可以接收空格</p>
+<p><code>\#include &lt;iostream&gt;</code><br><code>using namespace std;</code><br><code>main ()</code><br><code>&#123;</code><br><code>char a[20];</code><br><code>cin.get(a,20);</code><br><code>cout&lt;&lt;a&lt;&lt;endl;</code><br><code>&#125;</code></p>
+<p>输入：jkl jkl jkl<br>输出：jkl jkl jkl</p>
+<p>输入：abcdeabcdeabcdeabcdeabcde （输入25个字符）<br>输出：abcdeabcdeabcdeabcd       （接收19个字符+1个’\0’）</p>
+<p>用法3：cin.get(无参数)没有参数主要是用于舍弃输入流中的不需要的字符,或者舍弃回车,弥补cin.get(字符数组名,接收字符数目)的不足.</p>
+<p>这个我还不知道怎么用，知道的前辈请赐教；</p>
+<p>*<strong>3、cin.getline()  &#x2F;&#x2F; 接受一个字符串，可以接收空格并输出*</strong></p>
+<p><code>\#include &lt;iostream&gt;</code><br><code>using namespace std;</code><br><code>main ()</code><br><code>&#123;</code><br><code>char m[20];</code><br><code>cin.getline(m,5);</code><br><code>cout&lt;&lt;m&lt;&lt;endl;</code><br><code>&#125;</code></p>
+<p>输入：jkljkljkl<br>输出：jklj</p>
+<p>接受5个字符到m中，其中最后一个为’\0’，所以只看到4个字符输出；</p>
+<p>如果把5改成20：<br>输入：jkljkljkl<br>输出：jkljkljkl</p>
+<p>输入：jklf fjlsjf fjsdklf<br>输出：jklf fjlsjf fjsdklf</p>
+<p>&#x2F;&#x2F;延伸：<br>&#x2F;&#x2F;cin.getline()实际上有三个参数，cin.getline(接受字符串的看哦那间m,接受个数5,结束字符)<br>&#x2F;&#x2F;当第三个参数省略时，系统默认为’\0’<br>&#x2F;&#x2F;如果将例子中cin.getline()改为cin.getline(m,5,’a’);当输入jlkjkljkl时输出jklj，输入jkaljkljkl时，输出jk</p>
+<p>当用在多维数组中的时候，也可以用cin.getline(m[i],20)之类的用法：</p>
+<p><code>\#include&lt;iostream&gt;</code><br><code>\#include&lt;string&gt;</code><br><code>using namespace std;</code></p>
+<p><code>main ()</code><br><code>&#123;</code><br><code>char m[3][20];</code><br><code>for(int i=0;i&lt;3;i++)</code><br><code>&#123;</code><br><code>cout&lt;&lt;&quot;\n请输入第&quot;&lt;&lt;i+1&lt;&lt;&quot;个字符串：&quot;&lt;&lt;endl;</code><br><code>cin.getline(m[i],20);</code><br><code>&#125;</code></p>
+<p><code>cout&lt;&lt;endl;</code><br><code>for(int j=0;j&lt;3;j++)</code><br><code>cout&lt;&lt;&quot;输出m[&quot;&lt;&lt;j&lt;&lt;&quot;]的值:&quot;&lt;&lt;m[j]&lt;&lt;endl;</code></p>
 <p><code>&#125;</code></p>
-<h3 id="string中的元素操作："><a href="#string中的元素操作：" class="headerlink" title="string中的元素操作："></a>string中的元素操作：</h3><h6 id="string-中常用的元素操作包括在任意位置插入元素的insert-、在任意位置删除元素的-erase-和将字符串清空的clear-。"><a href="#string-中常用的元素操作包括在任意位置插入元素的insert-、在任意位置删除元素的-erase-和将字符串清空的clear-。" class="headerlink" title="string 中常用的元素操作包括在任意位置插入元素的insert()、在任意位置删除元素的 erase()和将字符串清空的clear()。"></a>string 中常用的元素操作包括在任意位置插入元素的insert()、在任意位置删除元素的 erase()和将字符串清空的clear()。</h6><h6 id="在字符串中寻找特定字符或字符串的函数是find-。若函数找到相应的字符或字符串-则返回对应的下标，若找不到返回string-npos。string-str-hello-world"><a href="#在字符串中寻找特定字符或字符串的函数是find-。若函数找到相应的字符或字符串-则返回对应的下标，若找不到返回string-npos。string-str-hello-world" class="headerlink" title="在字符串中寻找特定字符或字符串的函数是find()。若函数找到相应的字符或字符串 则返回对应的下标，若找不到返回string::npos。string str = &quot;hello world&quot;;"></a>在字符串中寻找特定字符或字符串的函数是find()。若函数找到相应的字符或字符串 则返回对应的下标，若找不到返回string::npos。<code>string str = &quot;hello world&quot;;</code></h6><p><code>int found = str.find(&quot;world&quot;); //找字符串</code> </p>
-<p><code>if (found != string::npos) </code></p>
-<p><code>&#123; printf(&quot;&#39;world&#39; found at: %d\n&quot;, found); &#125; </code></p>
-<p><code>found = str.find(&#39;l&#39;); </code></p>
-<p><code>if (found != string::npos) </code></p>
-<p><code>&#123; 中国大学MOOC 中国大学MOOC //找字符 printf(&quot;&#39;l&#39; found at: %d\n&quot;, found); &#125; </code></p>
-<p><code>found = str.find(&#39;.&#39;);</code></p>
-<p><code> if (found == string::npos)</code> </p>
-<p><code> &#123; printf(&quot;&#39;.&#39; not founded&quot;); &#125;</code></p>
-<p>结果：</p>
-<p>‘world’ found at: 6</p>
-<p> ‘l’ found at 2 </p>
-<p>‘.’ not founded</p>
-<h6 id="返回字符串的子串的函数是substr-。"><a href="#返回字符串的子串的函数是substr-。" class="headerlink" title="返回字符串的子串的函数是substr()。"></a>返回字符串的子串的函数是substr()。</h6><p> <code>string str1 = &quot;We think in generalities, but we live in details.&quot;;</code></p>
-<p><code>string str2 = str1.substr(3,5);</code> </p>
-<p><code>cout &lt;&lt; str2 &lt;&lt; endl;</code></p>
-<p>结果：</p>
-<p>think</p>
+<p>请输入第1个字符串：<br>kskr1</p>
+<p>请输入第2个字符串：<br>kskr2</p>
+<p>请输入第3个字符串：<br>kskr3</p>
+<p>输出m[0]的值:kskr1<br>输出m[1]的值:kskr2<br>输出m[2]的值:kskr3</p>
+<p><em><strong>4、getline()   &#x2F;&#x2F; 接受一个字符串，可以接收空格并输出，需包含“#include<string>”</strong></em></p>
+<p><code>\#include&lt;iostream&gt;</code><br><code>\#include&lt;string&gt;</code><br><code>using namespace std;</code><br><code>main ()</code><br><code>&#123;</code><br><code>string str;</code><br><code>getline(cin,str);</code><br><code>cout&lt;&lt;str&lt;&lt;endl;</code><br><code>&#125;</code></p>
+<p>输入：jkljkljkl<br>输出：jkljkljkl</p>
+<p>输入：jkl jfksldfj jklsjfl<br>输出：jkl jfksldfj jklsjfl</p>
+<p>和cin.getline()类似，但是cin.getline()属于iostream流，而getline()属于string流，是不一样的两个函数</p>
 
                 
             </div>
@@ -515,7 +532,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://oqoq010816.github.io/2024/03/14/%E5%AD%97%E7%AC%A6%E4%B8%B2/">https://oqoq010816.github.io/2024/03/14/%E5%AD%97%E7%AC%A6%E4%B8%B2/</a>
+                    <a href="https://oqoq010816.github.io/2024/03/14/C++%E4%B8%ADcin%E3%80%81cin.get()%E3%80%81cin.getline()%E3%80%81getline()%E3%80%81gets()%E7%AD%89%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/">https://oqoq010816.github.io/2024/03/14/C++%E4%B8%ADcin%E3%80%81cin.get()%E3%80%81cin.getline()%E3%80%81getline()%E3%80%81gets()%E7%AD%89%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -720,9 +737,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2024/03/14/C++%E4%B8%ADcin%E3%80%81cin.get()%E3%80%81cin.getline()%E3%80%81getline()%E3%80%81gets()%E7%AD%89%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/">
                     <div class="card-image">
@@ -740,9 +758,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -751,6 +769,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -761,7 +780,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/03/13/%E6%8E%92%E5%BA%8F/">
+                <a href="/2024/03/14/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
                     <div class="card-image">
                         
                         
@@ -778,7 +797,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-14
                             </span>
                         <span class="publish-author">
                             
