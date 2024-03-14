@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-03-12
+                    2024-03-14
                 </div>
                 
 
@@ -464,9 +464,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<p>title: MyfirstBlog<br>date: 2024-03-12 11:38:41</p>
-<h1 id="这是我的第一篇博客"><a href="#这是我的第一篇博客" class="headerlink" title="这是我的第一篇博客"></a>这是我的第一篇博客</h1><p> 欢迎你！<br>    hello world！</p>
+                <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件&lt;string.h&gt;"></a>头文件<code>&lt;string.h&gt;</code></h2><h3 id="string长度："><a href="#string长度：" class="headerlink" title="string长度："></a>string长度：</h3><p><code>string str;</code></p>
+<p>函数：<code>str.size()、str.length()</code></p>
+<h3 id="string访问："><a href="#string访问：" class="headerlink" title="string访问："></a>string访问：</h3><p>迭代器访问：</p>
+<p><code>string str=&quot;hello world&quot;;</code></p>
+<p><code>for(string::iterator it==str.begin();it!=str.end();it++)&#123;</code></p>
+<p>​		<code>printf(&quot;%c&quot;,*it);</code></p>
+<p><code>&#125;</code></p>
+<h3 id="string中的元素操作："><a href="#string中的元素操作：" class="headerlink" title="string中的元素操作："></a>string中的元素操作：</h3><h6 id="string-中常用的元素操作包括在任意位置插入元素的insert-、在任意位置删除元素的-erase-和将字符串清空的clear-。"><a href="#string-中常用的元素操作包括在任意位置插入元素的insert-、在任意位置删除元素的-erase-和将字符串清空的clear-。" class="headerlink" title="string 中常用的元素操作包括在任意位置插入元素的insert()、在任意位置删除元素的 erase()和将字符串清空的clear()。"></a>string 中常用的元素操作包括在任意位置插入元素的insert()、在任意位置删除元素的 erase()和将字符串清空的clear()。</h6><h6 id="在字符串中寻找特定字符或字符串的函数是find-。若函数找到相应的字符或字符串-则返回对应的下标，若找不到返回string-npos。string-str-hello-world"><a href="#在字符串中寻找特定字符或字符串的函数是find-。若函数找到相应的字符或字符串-则返回对应的下标，若找不到返回string-npos。string-str-hello-world" class="headerlink" title="在字符串中寻找特定字符或字符串的函数是find()。若函数找到相应的字符或字符串 则返回对应的下标，若找不到返回string::npos。string str = &quot;hello world&quot;;"></a>在字符串中寻找特定字符或字符串的函数是find()。若函数找到相应的字符或字符串 则返回对应的下标，若找不到返回string::npos。<code>string str = &quot;hello world&quot;;</code></h6><p><code>int found = str.find(&quot;world&quot;); //找字符串</code> </p>
+<p><code>if (found != string::npos) </code></p>
+<p><code>&#123; printf(&quot;&#39;world&#39; found at: %d\n&quot;, found); &#125; </code></p>
+<p><code>found = str.find(&#39;l&#39;); </code></p>
+<p><code>if (found != string::npos) </code></p>
+<p><code>&#123; 中国大学MOOC 中国大学MOOC //找字符 printf(&quot;&#39;l&#39; found at: %d\n&quot;, found); &#125; </code></p>
+<p><code>found = str.find(&#39;.&#39;);</code></p>
+<p><code> if (found == string::npos)</code> </p>
+<p><code> &#123; printf(&quot;&#39;.&#39; not founded&quot;); &#125;</code></p>
+<p>结果：</p>
+<p>‘world’ found at: 6</p>
+<p> ‘l’ found at 2 </p>
+<p>‘.’ not founded</p>
+<h6 id="返回字符串的子串的函数是substr-。"><a href="#返回字符串的子串的函数是substr-。" class="headerlink" title="返回字符串的子串的函数是substr()。"></a>返回字符串的子串的函数是substr()。</h6><p> <code>string str1 = &quot;We think in generalities, but we live in details.&quot;;</code></p>
+<p><code>string str2 = str1.substr(3,5);</code> </p>
+<p><code>cout &lt;&lt; str2 &lt;&lt; endl;</code></p>
+<p>结果：</p>
+<p>think</p>
 
                 
             </div>
@@ -493,7 +515,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://oqoq010816.github.io/2024/03/12/MyfirstBlog/">https://oqoq010816.github.io/2024/03/12/MyfirstBlog/</a>
+                    <a href="https://oqoq010816.github.io/2024/03/14/%E5%AD%97%E7%AC%A6%E4%B8%B2/">https://oqoq010816.github.io/2024/03/14/%E5%AD%97%E7%AC%A6%E4%B8%B2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -698,9 +720,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/03/14/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            oqoq
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2024/03/13/%E6%8E%92%E5%BA%8F/">
                     <div class="card-image">
@@ -718,45 +779,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-13
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            oqoq
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/03/12/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-13
                             </span>
                         <span class="publish-author">
                             
